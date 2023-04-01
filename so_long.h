@@ -6,17 +6,25 @@
 /*   By: mhassani <mhassani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 21:45:12 by mhassani          #+#    #+#             */
-/*   Updated: 2023/04/01 18:40:23 by mhassani         ###   ########.fr       */
+/*   Updated: 2023/04/01 19:59:27 by mhassani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 10
+# endif
+
 # include "./ft_printf/ft_printf.h"
 # include "./libft/libft.h"
 # include "mlx.h"
-# include "read_file.h"
+# include <fcntl.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <string.h>
+# include <unistd.h>
 
 typedef struct s_position
 {
@@ -73,5 +81,14 @@ void		surrounded(t_position *map);
 void		create_new_window(t_position *p);
 void		coins_count(t_position *p);
 void		fill_row(t_position *p);
+void		*ft_calloc(size_t count, size_t size);
+char		*read_file(int fd);
+char		*line(char *s);
+char		*left_str(char *s);
+size_t		ft_strlen(char *s);
+char		*ft_strjoin(char *s1, char *s2);
+int			ft_newline(char *s);
+char		*read_line(int fd, char *s);
+void		ft_free(char *s1, char *s2);
 
 #endif

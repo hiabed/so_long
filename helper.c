@@ -6,7 +6,7 @@
 /*   By: mhassani <mhassani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 00:26:03 by mhassani          #+#    #+#             */
-/*   Updated: 2023/04/01 00:27:59 by mhassani         ###   ########.fr       */
+/*   Updated: 2023/04/01 20:04:20 by mhassani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	create_new_window(t_position *p)
 	p->mlx_ptr = mlx_init();
 	if (!p->mlx_ptr)
 	{
-		ft_printf("problem with mlx initialization");
+		write(2, "problem with mlx initialization\n", 32);
 		exit(EXIT_FAILURE);
 	}
 	p->row = 0;
@@ -32,7 +32,7 @@ void	create_new_window(t_position *p)
 			"My Game");
 	if (!p->win_ptr)
 	{
-		ft_printf("could not open the window");
+		write(2, "could not open the window\n", 26);
 		exit(1);
 	}
 	p->row = 0;
