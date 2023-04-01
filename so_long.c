@@ -6,7 +6,7 @@
 /*   By: mhassani <mhassani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 21:42:29 by mhassani          #+#    #+#             */
-/*   Updated: 2023/04/01 18:37:56 by mhassani         ###   ########.fr       */
+/*   Updated: 2023/04/01 20:20:15 by mhassani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,7 @@ int	main(int ac, char *av[])
 	read_to_split(fd, av[1], p);
 	map_clone(fd, av[1], p);
 	so_long(p);
-	mlx_key_hook(p->win_ptr, *handle_key_press, p);
-	mlx_hook(p->win_ptr, 17, 0, *ft_close, NULL);
+	mlx_key_hook(p->win_ptr, handle_key_press, p);
+	mlx_hook(p->win_ptr, 17, 0, ft_close, NULL);
 	mlx_loop(p->mlx_ptr);
 }
