@@ -6,7 +6,7 @@
 /*   By: mhassani <mhassani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 21:45:12 by mhassani          #+#    #+#             */
-/*   Updated: 2023/04/01 19:59:27 by mhassani         ###   ########.fr       */
+/*   Updated: 2023/04/01 21:09:21 by mhassani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ typedef struct s_position
 	void	*win_ptr;
 	void	*mlx_ptr;
 	char	**split;
-	char	**map;
+	char	**clone_map;
 	char	*buffer;
 }			t_position;
 

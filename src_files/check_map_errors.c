@@ -6,7 +6,7 @@
 /*   By: mhassani <mhassani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 01:32:12 by mhassani          #+#    #+#             */
-/*   Updated: 2023/04/01 20:08:43 by mhassani         ###   ########.fr       */
+/*   Updated: 2023/04/01 21:09:42 by mhassani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	map_clone(int fd, char *s, t_position *map)
 	}
 	buffer = read_file(fd);
 	free(buffer);
-	map->map = ft_split(buffer, '\n');
+	map->clone_map = ft_split(buffer, '\n');
 	close(fd);
 }
 
