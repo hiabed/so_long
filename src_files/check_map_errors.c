@@ -6,7 +6,7 @@
 /*   By: mhassani <mhassani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 01:32:12 by mhassani          #+#    #+#             */
-/*   Updated: 2023/04/01 21:09:42 by mhassani         ###   ########.fr       */
+/*   Updated: 2023/04/01 21:15:27 by mhassani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,11 @@ void	map_clone_check(t_position *p)
 {
 	p->row = 0;
 	p->col = 0;
-	while (p->map[p->row])
+	while (p->clone_map[p->row])
 	{
-		while (p->map[p->row][p->col])
+		while (p->clone_map[p->row][p->col])
 		{
-			if (p->map[p->row][p->col] == 'C')
+			if (p->clone_map[p->row][p->col] == 'C')
 			{
 				write(2, "Error\n", 6);
 				exit(EXIT_FAILURE);
@@ -58,9 +58,10 @@ void	map_clone_check(t_position *p)
 		p->col = 0;
 		p->row++;
 	}
-	if (p->map[p->door_row + 1][p->door_col] != '*' && p->map[p->door_row
-		- 1][p->door_col] != '*' && p->map[p->door_row][p->door_col + 1] != '*'
-		&& p->map[p->door_row][p->door_col - 1] != '*')
+	if (p->clone_map[p->door_row + 1][p->door_col] != '*'
+		&& p->clone_map[p->door_row - 1][p->door_col] != '*'
+		&& p->clone_map[p->door_row][p->door_col + 1] != '*'
+		&& p->clone_map[p->door_row][p->door_col - 1] != '*')
 	{
 		write(2, "Error\n", 10);
 		write(2, "The player can't reach the door\n", 32);

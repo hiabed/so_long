@@ -6,7 +6,7 @@
 /*   By: mhassani <mhassani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 21:42:29 by mhassani          #+#    #+#             */
-/*   Updated: 2023/04/01 20:21:04 by mhassani         ###   ########.fr       */
+/*   Updated: 2023/04/01 21:17:25 by mhassani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ void	so_long(t_position *p)
 		p->row++;
 	}
 	exit_door(p);
-	flood_fill(p->map, p->p_row, p->p_col);
+	flood_fill(p->clone_map, p->p_row, p->p_col);
 	map_clone_check(p);
 	coins_count(p);
 }
@@ -116,6 +116,7 @@ int	main(int ac, char *av[])
 	read_to_split(fd, av[1], p);
 	map_clone(fd, av[1], p);
 	so_long(p);
+	p->count = 0;
 	mlx_key_hook(p->win_ptr, handle_key_press, p);
 	mlx_hook(p->win_ptr, 17, 0, ft_close, NULL);
 	mlx_loop(p->mlx_ptr);
