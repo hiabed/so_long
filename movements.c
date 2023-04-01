@@ -6,7 +6,7 @@
 /*   By: mhassani <mhassani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 22:18:01 by mhassani          #+#    #+#             */
-/*   Updated: 2023/03/30 01:43:07 by mhassani         ###   ########.fr       */
+/*   Updated: 2023/04/01 00:24:24 by mhassani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,7 +130,7 @@ int	handle_key_press(int keycode, t_position *p)
 		eat_coin_right(p);
 		move_right(p);
 	}
-	else if(keycode == 53)
+	else if (keycode == 53)
 		exit(EXIT_SUCCESS);
 	return (0);
 }

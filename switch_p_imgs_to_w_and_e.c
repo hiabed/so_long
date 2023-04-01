@@ -6,7 +6,7 @@
 /*   By: mhassani <mhassani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 21:42:02 by mhassani          #+#    #+#             */
-/*   Updated: 2023/03/29 21:55:16 by mhassani         ###   ########.fr       */
+/*   Updated: 2023/04/01 19:57:44 by mhassani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,22 +46,28 @@ void	switch_img_down(t_position *p)
 
 void	xpm_to_img(t_position *p)
 {
-	p->space_ptr = mlx_xpm_file_to_image(p->mlx_ptr, "green_background.xpm",
+	p->space_ptr = mlx_xpm_file_to_image(p->mlx_ptr,
+			"./imgs/green_background.xpm", &p->width, &p->height);
+	p->wall_img_ptr = mlx_xpm_file_to_image(p->mlx_ptr, "./imgs/wall.xpm",
 			&p->width, &p->height);
-	p->wall_img_ptr = mlx_xpm_file_to_image(p->mlx_ptr, "wall.xpm", &p->width,
+	p->p_left = mlx_xpm_file_to_image(p->mlx_ptr, "./imgs/left.xpm", &p->width,
 			&p->height);
-	p->p_left = mlx_xpm_file_to_image(p->mlx_ptr, "left.xpm", &p->width,
+	p->p_right = mlx_xpm_file_to_image(p->mlx_ptr, "./imgs/right.xpm",
+			&p->width, &p->height);
+	p->p_up = mlx_xpm_file_to_image(p->mlx_ptr, "./imgs/up.xpm", &p->width,
 			&p->height);
-	p->p_right = mlx_xpm_file_to_image(p->mlx_ptr, "right.xpm", &p->width,
+	p->p_down = mlx_xpm_file_to_image(p->mlx_ptr, "./imgs/down.xpm", &p->width,
 			&p->height);
-	p->p_up = mlx_xpm_file_to_image(p->mlx_ptr, "up.xpm", &p->width,
-			&p->height);
-	p->p_down = mlx_xpm_file_to_image(p->mlx_ptr, "down.xpm", &p->width,
-			&p->height);
-	p->coin_ptr = mlx_xpm_file_to_image(p->mlx_ptr, "coin.xpm", &p->width,
-			&p->height);
-	p->closed = mlx_xpm_file_to_image(p->mlx_ptr, "closed_door.xpm", &p->width,
-			&p->height);
-	p->opened = mlx_xpm_file_to_image(p->mlx_ptr, "opened_door.xpm", &p->width,
-			&p->height);
+	p->coin_ptr = mlx_xpm_file_to_image(p->mlx_ptr, "./imgs/coin.xpm",
+			&p->width, &p->height);
+	p->closed = mlx_xpm_file_to_image(p->mlx_ptr, "./imgs/closed_door.xpm",
+			&p->width, &p->height);
+	p->opened = mlx_xpm_file_to_image(p->mlx_ptr, "./imgs/opened_door.xpm",
+			&p->width, &p->height);
+	if (!p->space_ptr || !p->wall_img_ptr || !p->p_left || !p->p_right
+		|| !p->p_up || !p->p_down || !p->coin_ptr || !p->closed || !p->opened)
+	{
+		write(2, "Error\n", 6);
+		exit(1);
+	}
 }

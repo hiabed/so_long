@@ -6,7 +6,7 @@
 /*   By: mhassani <mhassani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 01:32:12 by mhassani          #+#    #+#             */
-/*   Updated: 2023/03/30 01:49:46 by mhassani         ###   ########.fr       */
+/*   Updated: 2023/04/01 00:08:13 by mhassani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	map_clone(int fd, char *s, t_position *map)
 		exit(1);
 	}
 	buffer = read_file(fd);
+	free(buffer);
 	map->map = ft_split(buffer, '\n');
 	close(fd);
 }
@@ -57,12 +58,67 @@ void	map_clone_check(t_position *p)
 		p->col = 0;
 		p->row++;
 	}
-	if (p->map[p->door_row + 1][p->door_col] == '1' && p->map[p->door_row
-		- 1][p->door_col] == '1' && p->map[p->door_row][p->door_col + 1] == '1'
-		&& p->map[p->door_row][p->door_col - 1] == '1')
+	if (p->map[p->door_row + 1][p->door_col] != '*' && p->map[p->door_row
+		- 1][p->door_col] != '*' && p->map[p->door_row][p->door_col + 1] != '*'
+		&& p->map[p->door_row][p->door_col - 1] != '*')
 	{
 		write(2, "Error\n", 10);
 		write(2, "The player can't reach the door\n", 32);
 		exit(EXIT_FAILURE);
+	}
+}
+
+void	check_nl(t_position *map)
+{
+	int	i;
+
+	if (map->buffer[0] == '\n')
+	{
+		write(2, "Error\n", 6);
+		exit(EXIT_FAILURE);
+	}
+	i = 0;
+	while (map->buffer[i])
+	{
+		if (map->buffer[i] == '\n' && map->buffer[i + 1] == '\n')
+		{
+			write(2, "Error\n", 6);
+			exit(EXIT_FAILURE);
+		}
+		i++;
+	}
+	if (map->buffer[i - 1] == '\n')
+	{
+		write(2, "Error\n", 6);
+		exit(EXIT_FAILURE);
+	}
+}
+
+void	surrounded(t_position *map)
+{
+	while (map->split[map->i])
+	{
+		if (map->split[map->i][0] != '1' || map->split[map->i][map->len_string
+			- 1] != '1')
+		{
+			write(2, "Error\n", 6);
+			exit(EXIT_FAILURE);
+		}
+		if (ft_strlen(map->split[map->i]) != (size_t)map->len_string)
+		{
+			write(2, "Error\n", 6);
+			exit(EXIT_FAILURE);
+		}
+		map->i++;
+	}
+	while (map->split[0][map->j] && map->split[map->i - 1][map->j])
+	{
+		if (map->split[map->i - 1][map->j] != '1'
+			|| map->split[0][map->j] != '1')
+		{
+			write(2, "Error\n", 6);
+			exit(EXIT_FAILURE);
+		}
+		map->j++;
 	}
 }

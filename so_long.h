@@ -6,7 +6,7 @@
 /*   By: mhassani <mhassani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 21:45:12 by mhassani          #+#    #+#             */
-/*   Updated: 2023/03/30 01:34:53 by mhassani         ###   ########.fr       */
+/*   Updated: 2023/04/01 18:40:23 by mhassani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,10 @@
 
 typedef struct s_position
 {
+	int		fd;
+	int		i;
+	int		j;
+	int		len_string;
 	int		count;
 	int		coin_count;
 	int		p_row;
@@ -43,6 +47,7 @@ typedef struct s_position
 	void	*mlx_ptr;
 	char	**split;
 	char	**map;
+	char	*buffer;
 }			t_position;
 
 void		move_up(t_position *p);
@@ -63,5 +68,10 @@ int			ft_close(void);
 void		map_clone(int fd, char *s, t_position *map);
 void		flood_fill(char **map, int p_row, int p_col);
 void		map_clone_check(t_position *p);
+void		check_nl(t_position *map);
+void		surrounded(t_position *map);
+void		create_new_window(t_position *p);
+void		coins_count(t_position *p);
+void		fill_row(t_position *p);
 
 #endif
