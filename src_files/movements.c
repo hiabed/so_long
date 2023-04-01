@@ -6,11 +6,11 @@
 /*   By: mhassani <mhassani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 22:18:01 by mhassani          #+#    #+#             */
-/*   Updated: 2023/04/01 00:24:24 by mhassani         ###   ########.fr       */
+/*   Updated: 2023/04/01 20:08:57 by mhassani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 void	move_up(t_position *p)
 {

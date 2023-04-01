@@ -6,11 +6,11 @@
 /*   By: mhassani <mhassani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 17:36:32 by mhassani          #+#    #+#             */
-/*   Updated: 2023/04/01 18:36:06 by mhassani         ###   ########.fr       */
+/*   Updated: 2023/04/01 20:09:01 by mhassani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 size_t	ft_strlen(char *s)
 {

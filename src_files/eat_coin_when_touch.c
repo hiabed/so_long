@@ -6,11 +6,11 @@
 /*   By: mhassani <mhassani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 21:41:21 by mhassani          #+#    #+#             */
-/*   Updated: 2023/03/29 22:24:21 by mhassani         ###   ########.fr       */
+/*   Updated: 2023/04/01 20:08:50 by mhassani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 void	eat_coin_up(t_position *p)
 {

@@ -6,11 +6,11 @@
 /*   By: mhassani <mhassani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 00:26:03 by mhassani          #+#    #+#             */
-/*   Updated: 2023/04/01 20:04:20 by mhassani         ###   ########.fr       */
+/*   Updated: 2023/04/01 20:08:54 by mhassani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 void	create_new_window(t_position *p)
 {

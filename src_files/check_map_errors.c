@@ -6,11 +6,11 @@
 /*   By: mhassani <mhassani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 01:32:12 by mhassani          #+#    #+#             */
-/*   Updated: 2023/04/01 20:04:55 by mhassani         ###   ########.fr       */
+/*   Updated: 2023/04/01 20:08:43 by mhassani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 void	map_clone(int fd, char *s, t_position *map)
 {

@@ -6,11 +6,11 @@
 /*   By: mhassani <mhassani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 21:42:02 by mhassani          #+#    #+#             */
-/*   Updated: 2023/04/01 19:57:44 by mhassani         ###   ########.fr       */
+/*   Updated: 2023/04/01 20:09:09 by mhassani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 void	switch_img_left(t_position *p)
 {
