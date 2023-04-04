@@ -6,7 +6,7 @@
 /*   By: mhassani <mhassani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 01:32:12 by mhassani          #+#    #+#             */
-/*   Updated: 2023/04/04 21:33:16 by mhassani         ###   ########.fr       */
+/*   Updated: 2023/04/04 22:38:37 by mhassani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ void	map_clone(int fd, char *s, t_position *map)
 	fd = open(s, O_RDONLY);
 	if (fd == -1)
 	{
-		write(2, "Error: could not open file\n", 27);
+		write(2, "Error\n", 6);
+		write(2, "could not open file\n", 20);
 		exit(1);
 	}
 	buffer = read_file(fd);
@@ -50,7 +51,7 @@ void	map_clone_check(t_position *p)
 		{
 			if (p->clone_map[p->row][p->col] == 'C')
 			{
-				write(2, "Error\n", 10);
+				write(2, "Error\n", 6);
 				exit(EXIT_FAILURE);
 			}
 			p->col++;
@@ -63,7 +64,7 @@ void	map_clone_check(t_position *p)
 		&& p->clone_map[p->door_row][p->door_col + 1] != '*'
 		&& p->clone_map[p->door_row][p->door_col - 1] != '*')
 	{
-		write(2, "Error\n", 10);
+		write(2, "Error\n", 6);
 		write(2, "The player can't reach the door\n", 32);
 		exit(EXIT_FAILURE);
 	}

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_map_errors.c                                 :+:      :+:    :+:   */
+/*   check_map_errors_bonus.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mhassani <mhassani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 01:32:12 by mhassani          #+#    #+#             */
-/*   Updated: 2023/04/04 00:54:23 by mhassani         ###   ########.fr       */
+/*   Updated: 2023/04/04 22:36:56 by mhassani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ void	map_clone(int fd, char *s, t_position *map)
 	fd = open(s, O_RDONLY);
 	if (fd == -1)
 	{
-		write(2, "Error: could not open file\n", 27);
+		write(2, "Error\n", 6);
+		write(2, "could not open file\n", 20);
 		exit(1);
 	}
 	buffer = read_file(fd);
