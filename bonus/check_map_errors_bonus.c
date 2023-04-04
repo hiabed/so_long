@@ -6,7 +6,7 @@
 /*   By: mhassani <mhassani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 01:32:12 by mhassani          #+#    #+#             */
-/*   Updated: 2023/04/04 21:33:16 by mhassani         ###   ########.fr       */
+/*   Updated: 2023/04/04 00:54:23 by mhassani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	map_clone_check(t_position *p)
 		{
 			if (p->clone_map[p->row][p->col] == 'C')
 			{
-				write(2, "Error\n", 10);
+				write(2, "Error\n", 6);
 				exit(EXIT_FAILURE);
 			}
 			p->col++;

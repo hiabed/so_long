@@ -6,7 +6,7 @@
 #    By: mhassani <mhassani@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/29 13:57:27 by mhassani          #+#    #+#              #
-#    Updated: 2023/03/29 01:18:27 by mhassani         ###   ########.fr        #
+#    Updated: 2023/04/02 00:55:46 by mhassani         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,8 @@ CFILES = ft_atoi.c\
         ft_strjoin.c\
         ft_strlen.c\
         ft_strnstr.c\
+        ft_itoa.c\
+        ft_strdup.c\
 
 OBJ = ${CFILES:.c=.o}
 CFLAGS = -Wall -Werror -Wextra

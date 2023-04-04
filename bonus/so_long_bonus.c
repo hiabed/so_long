@@ -6,11 +6,11 @@
 /*   By: mhassani <mhassani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 21:42:29 by mhassani          #+#    #+#             */
-/*   Updated: 2023/04/01 21:17:25 by mhassani         ###   ########.fr       */
+/*   Updated: 2023/04/04 01:52:37 by mhassani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 void	read_to_split(int fd, char *s, t_position *map)
 {
@@ -116,6 +116,8 @@ int	main(int ac, char *av[])
 	read_to_split(fd, av[1], p);
 	map_clone(fd, av[1], p);
 	so_long(p);
+	p->frame = 0;
+	mlx_loop_hook (p->mlx_ptr, animate_coins, p);
 	p->count = 0;
 	mlx_key_hook(p->win_ptr, handle_key_press, p);
 	mlx_hook(p->win_ptr, 17, 0, ft_close, NULL);
