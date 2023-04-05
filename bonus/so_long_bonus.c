@@ -6,7 +6,7 @@
 /*   By: mhassani <mhassani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 21:42:29 by mhassani          #+#    #+#             */
-/*   Updated: 2023/04/05 01:55:19 by mhassani         ###   ########.fr       */
+/*   Updated: 2023/04/05 02:28:19 by mhassani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,6 +111,12 @@ int	main(int ac, char *av[])
 	if (ac != 2)
 	{
 		write(2, "you should enter 2 arguments\n", 29);
+		exit(EXIT_FAILURE);
+	}
+	if (av[1][ft_strlen(av[1]) - 4] != '.' || av[1][ft_strlen(av[1]) - 3] != 'b'
+	|| av[1][ft_strlen(av[1]) - 2] != 'e' || av[1][ft_strlen(av[1]) - 1] != 'r')
+	{
+		write(2, "Error\n", 6);
 		exit(EXIT_FAILURE);
 	}
 	read_to_split(fd, av[1], p);
