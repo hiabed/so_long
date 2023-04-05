@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   animation.c                                        :+:      :+:    :+:   */
+/*   animation_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mhassani <mhassani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 01:00:28 by mhassani          #+#    #+#             */
-/*   Updated: 2023/04/04 01:16:40 by mhassani         ###   ########.fr       */
+/*   Updated: 2023/04/05 01:45:07 by mhassani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,14 @@ void	create_new_window(t_position *p)
 	p->col = 0;
 }
 
+void	door_position(t_position *p)
+{
+	mlx_put_image_to_window(p->mlx_ptr, p->win_ptr, p->closed, p->col
+		* 70, p->row * 70);
+	p->door_col = p->col;
+	p->door_row = p->row;
+}
+
 void	fill_row(t_position *p)
 {
 	while (p->split[p->row][p->col])
@@ -55,15 +63,15 @@ void	fill_row(t_position *p)
 			mlx_put_image_to_window(p->mlx_ptr, p->win_ptr, p->space_ptr, p->col
 				* 70, p->row * 70);
 		else if (p->split[p->row][p->col] == 'E')
-		{
-			mlx_put_image_to_window(p->mlx_ptr, p->win_ptr, p->closed, p->col
-				* 70, p->row * 70);
-			p->door_col = p->col;
-			p->door_row = p->row;
-		}
+			door_position(p);
 		else if (p->split[p->row][p->col] == 'C')
 			mlx_put_image_to_window(p->mlx_ptr, p->win_ptr, p->coin_ptr1, p->col
 				* 70, p->row * 70);
+		else
+		{
+			write(2, "Error\n", 6);
+			exit(EXIT_FAILURE);
+		}
 		p->col++;
 	}
 }

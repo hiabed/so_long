@@ -6,7 +6,7 @@
 /*   By: mhassani <mhassani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 01:32:12 by mhassani          #+#    #+#             */
-/*   Updated: 2023/04/04 22:38:37 by mhassani         ###   ########.fr       */
+/*   Updated: 2023/04/05 01:54:54 by mhassani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,24 +72,27 @@ void	map_clone_check(t_position *p)
 
 void	check_nl(t_position *map)
 {
-	int	i;
-
+	if (!map->buffer)
+	{
+		write(2, "Error\n", 6);
+		exit(EXIT_FAILURE);
+	}
 	if (map->buffer[0] == '\n')
 	{
 		write(2, "Error\n", 6);
 		exit(EXIT_FAILURE);
 	}
-	i = 0;
-	while (map->buffer[i])
+	map->i = 0;
+	while (map->buffer[map->i])
 	{
-		if (map->buffer[i] == '\n' && map->buffer[i + 1] == '\n')
+		if (map->buffer[map->i] == '\n' && map->buffer[map->i + 1] == '\n')
 		{
 			write(2, "Error\n", 6);
 			exit(EXIT_FAILURE);
 		}
-		i++;
+		map->i++;
 	}
-	if (map->buffer[i - 1] == '\n')
+	if (map->buffer[map->i - 1] == '\n')
 	{
 		write(2, "Error\n", 6);
 		exit(EXIT_FAILURE);

@@ -6,7 +6,7 @@
 /*   By: mhassani <mhassani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 00:26:03 by mhassani          #+#    #+#             */
-/*   Updated: 2023/04/01 20:08:54 by mhassani         ###   ########.fr       */
+/*   Updated: 2023/04/05 01:45:03 by mhassani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,14 @@ void	create_new_window(t_position *p)
 	p->col = 0;
 }
 
+void	door_position(t_position *p)
+{
+	mlx_put_image_to_window(p->mlx_ptr, p->win_ptr, p->closed, p->col
+		* 70, p->row * 70);
+	p->door_col = p->col;
+	p->door_row = p->row;
+}
+
 void	fill_row(t_position *p)
 {
 	while (p->split[p->row][p->col])
@@ -58,11 +66,11 @@ void	fill_row(t_position *p)
 			mlx_put_image_to_window(p->mlx_ptr, p->win_ptr, p->coin_ptr, p->col
 				* 70, p->row * 70);
 		else if (p->split[p->row][p->col] == 'E')
+			door_position(p);
+		else
 		{
-			mlx_put_image_to_window(p->mlx_ptr, p->win_ptr, p->closed, p->col
-				* 70, p->row * 70);
-			p->door_col = p->col;
-			p->door_row = p->row;
+			write(2, "Error\n", 6);
+			exit(EXIT_FAILURE);
 		}
 		p->col++;
 	}
