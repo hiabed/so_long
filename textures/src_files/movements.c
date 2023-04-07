@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   movements_bonus.c                                  :+:      :+:    :+:   */
+/*   movements.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mhassani <mhassani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 22:18:01 by mhassani          #+#    #+#             */
-/*   Updated: 2023/04/07 22:36:03 by mhassani         ###   ########.fr       */
+/*   Updated: 2023/04/01 20:08:57 by mhassani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ void	move_up(t_position *p)
 		ft_printf("you win");
 		exit(EXIT_SUCCESS);
 	}
-	if (p->split[p->p_row - 1][p->p_col] == 'N')
-		you_lost();
 	if (p->split[p->p_row - 1][p->p_col] != '1' && p->split[p->p_row
 		- 1][p->p_col] != 'E')
 	{
@@ -31,10 +29,7 @@ void	move_up(t_position *p)
 		p->p_row--;
 		mlx_put_image_to_window(p->mlx_ptr, p->win_ptr, p->p_up, p->p_col * 70,
 			p->p_row * 70);
-		mlx_put_image_to_window(p->mlx_ptr, p->win_ptr, p->wall_img_ptr, 0, 0);
-		mlx_string_put(p->mlx_ptr, p->win_ptr, p->col + 25, p->row, 0xFF0000,
-			p->move = ft_itoa(++p->count));
-		free(p->move);
+		ft_printf("move: %d\n", ++p->count);
 	}
 	if (p->split[p->p_row - 1][p->p_col] == '1' || p->split[p->p_row
 		- 1][p->p_col] == 'E')
@@ -48,8 +43,6 @@ void	move_down(t_position *p)
 		ft_printf("you win");
 		exit(EXIT_SUCCESS);
 	}
-	if (p->split[p->p_row + 1][p->p_col] == 'N')
-		you_lost();
 	if (p->split[p->p_row + 1][p->p_col] != '1' && p->split[p->p_row
 		+ 1][p->p_col] != 'E')
 	{
@@ -60,10 +53,7 @@ void	move_down(t_position *p)
 		p->p_row++;
 		mlx_put_image_to_window(p->mlx_ptr, p->win_ptr, p->p_down, p->p_col
 			* 70, p->p_row * 70);
-		mlx_put_image_to_window(p->mlx_ptr, p->win_ptr, p->wall_img_ptr, 0, 0);
-		mlx_string_put(p->mlx_ptr, p->win_ptr, p->col + 25, p->row, 0xFF0000,
-			p->move = ft_itoa(++p->count));
-		free(p->move);
+		ft_printf("move: %d\n", ++p->count);
 	}
 	if (p->split[p->p_row + 1][p->p_col] == '1' || p->split[p->p_row
 		+ 1][p->p_col] == 'E')
@@ -77,8 +67,6 @@ void	move_left(t_position *p)
 		ft_printf("you win");
 		exit(EXIT_SUCCESS);
 	}
-	if (p->split[p->p_row][p->p_col - 1] == 'N')
-		you_lost();
 	if (p->split[p->p_row][p->p_col - 1] != '1' && p->split[p->p_row][p->p_col
 		- 1] != 'E')
 	{
@@ -89,10 +77,7 @@ void	move_left(t_position *p)
 		p->p_col--;
 		mlx_put_image_to_window(p->mlx_ptr, p->win_ptr, p->p_left, p->p_col
 			* 70, p->p_row * 70);
-		mlx_put_image_to_window(p->mlx_ptr, p->win_ptr, p->wall_img_ptr, 0, 0);
-		mlx_string_put(p->mlx_ptr, p->win_ptr, p->col + 25, p->row, 0xFF0000,
-			p->move = ft_itoa(++p->count));
-		free(p->move);
+		ft_printf("move: %d\n", ++p->count);
 	}
 	if (p->split[p->p_row][p->p_col - 1] == '1' || p->split[p->p_row][p->p_col
 		- 1] == 'E')
@@ -106,8 +91,6 @@ void	move_right(t_position *p)
 		ft_printf("you win");
 		exit(EXIT_SUCCESS);
 	}
-	if (p->split[p->p_row][p->p_col + 1] == 'N')
-		you_lost();
 	if (p->split[p->p_row][p->p_col + 1] != '1' && p->split[p->p_row][p->p_col
 		+ 1] != 'E')
 	{
@@ -118,10 +101,7 @@ void	move_right(t_position *p)
 		p->p_col++;
 		mlx_put_image_to_window(p->mlx_ptr, p->win_ptr, p->p_right, p->p_col
 			* 70, p->p_row * 70);
-		mlx_put_image_to_window(p->mlx_ptr, p->win_ptr, p->wall_img_ptr, 0, 0);
-		mlx_string_put(p->mlx_ptr, p->win_ptr, p->col + 25, p->row, 0xFF0000,
-			p->move = ft_itoa(++p->count));
-		free(p->move);
+		ft_printf("move: %d\n", ++p->count);
 	}
 	if (p->split[p->p_row][p->p_col + 1] == '1' || p->split[p->p_row][p->p_col
 		+ 1] == 'E')
