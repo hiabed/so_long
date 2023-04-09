@@ -6,7 +6,7 @@
 /*   By: mhassani <mhassani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 21:42:29 by mhassani          #+#    #+#             */
-/*   Updated: 2023/04/07 22:29:40 by mhassani         ###   ########.fr       */
+/*   Updated: 2023/04/09 00:44:14 by mhassani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,8 @@ void	exit_door(t_position *p)
 
 void	so_long(t_position *p)
 {
+	map_clone_check(p);
+	flood_fill(p->clone_map, p->p_row, p->p_col);
 	get_player_position(p);
 	create_new_window(p);
 	xpm_to_img(p);
@@ -96,8 +98,6 @@ void	so_long(t_position *p)
 		p->row++;
 	}
 	exit_door(p);
-	flood_fill(p->clone_map, p->p_row, p->p_col);
-	map_clone_check(p);
 	coins_count(p);
 }
 
