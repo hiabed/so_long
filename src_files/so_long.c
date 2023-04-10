@@ -6,7 +6,7 @@
 /*   By: mhassani <mhassani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 21:42:29 by mhassani          #+#    #+#             */
-/*   Updated: 2023/04/09 00:43:38 by mhassani         ###   ########.fr       */
+/*   Updated: 2023/04/10 18:36:51 by mhassani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,11 @@ void	exit_door(t_position *p)
 		while (p->split[p->row][p->col])
 		{
 			if (p->split[p->row][p->col] == 'E')
+			{
+				p->door_row = p->row;
+				p->door_col = p->col;
 				door_count++;
+			}
 			p->col++;
 		}
 		p->col = 0;
@@ -86,9 +90,10 @@ void	exit_door(t_position *p)
 
 void	so_long(t_position *p)
 {
-	map_clone_check(p);
-	flood_fill(p->clone_map, p->p_row, p->p_col);
 	get_player_position(p);
+	exit_door(p);
+	flood_fill(p->clone_map, p->p_row, p->p_col);
+	map_clone_check(p);
 	create_new_window(p);
 	xpm_to_img(p);
 	while (p->split[p->row])
@@ -97,7 +102,6 @@ void	so_long(t_position *p)
 		p->col = 0;
 		p->row++;
 	}
-	exit_door(p);
 	coins_count(p);
 }
 
