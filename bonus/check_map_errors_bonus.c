@@ -6,7 +6,7 @@
 /*   By: mhassani <mhassani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 01:32:12 by mhassani          #+#    #+#             */
-/*   Updated: 2023/04/05 01:52:59 by mhassani         ###   ########.fr       */
+/*   Updated: 2023/04/10 18:33:00 by mhassani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,19 +44,18 @@ void	flood_fill(char **map, int p_row, int p_col)
 void	map_clone_check(t_position *p)
 {
 	p->row = 0;
-	p->col = 0;
 	while (p->clone_map[p->row])
 	{
+		p->col = 0;
 		while (p->clone_map[p->row][p->col])
 		{
 			if (p->clone_map[p->row][p->col] == 'C')
 			{
-				write(2, "Error\n", 6);
+				write(2, "E\n", 6);
 				exit(EXIT_FAILURE);
 			}
 			p->col++;
 		}
-		p->col = 0;
 		p->row++;
 	}
 	if (p->clone_map[p->door_row + 1][p->door_col] != '*'
@@ -64,7 +63,7 @@ void	map_clone_check(t_position *p)
 		&& p->clone_map[p->door_row][p->door_col + 1] != '*'
 		&& p->clone_map[p->door_row][p->door_col - 1] != '*')
 	{
-		write(2, "Error\n", 10);
+		write(2, "Error\n", 6);
 		write(2, "The player can't reach the door\n", 32);
 		exit(EXIT_FAILURE);
 	}
